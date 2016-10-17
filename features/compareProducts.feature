@@ -6,7 +6,8 @@ We need an app to create this report
 #parse the data
 #compute the points to have a significant information eg price: 2000 and 5000 can have: (direct: 1,2) , (/500: 4,10) , (/1000:2,5);
 #same for shifters: put the position found in my list or add positions from official lists? sh1 , sh2 can have (1,2) or (3, 5)
-#make the points to be cumulable.
+#make the points to be cumulable aka they need to have same signifiance
+
 
 @wip
   Scenario: Products differ by 1 quality
@@ -14,10 +15,13 @@ We need an app to create this report
       | a  | avalue |
       | a1 | 1      |
       | a2 | 2      |
+      | a3 | 1      |
       | b1 | 1      |
       | b2 | 2      |
     And "product" with "aquality" and "bquality"
       | product | aquality | bquality |
+      | p6      | a3       | b2       |
+      | p5      | a3       | b1       |
       | p4      | a2       | b2       |
       | p3      | a1       | b2       |
       | p2      | a2       | b1       |
@@ -28,8 +32,10 @@ We need an app to create this report
 
       | products | score |
       | p1       | 2     |
+      | p5       | 2     |
       | p2       | 3     |
       | p3       | 3     |
+      | p6       | 3     |
       | p4       | 4     |
 
 
